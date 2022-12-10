@@ -6,7 +6,6 @@
   <title>Nicolas Camusso</title>
   <meta name="description" content="Hello world">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
   <script src="js/main.js" defer></script>
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -212,8 +211,14 @@
           <span data-current-language="english">Contact me</span>
           <span data-current-language="spanish">Contáctame</span>
         </h2>
-        <from class="contact-grid" action="https://formsubmit.co/nico_inax@hotmail.com" method="POST">
+        <form class="contact-grid" action="https://formsubmit.co/3ecb5d81e44d50a90c9388c997c9fcb7" method="POST" data-contact-form>
 
+          <!-- Sends to another page to confirm that message was sent -->
+          <input type="hidden" name="_next" data-success-page-link>
+          <!-- Sends autoresponse message -->
+          <input type="hidden" name="_autoresponse" data-autoresponse-link>
+
+          <!-- Intro message -->
           <div class="intro-text scroll-hidden fadeInLeft">
             <p class="big" data-current-language="english">HEY!</p>
             <p data-current-language="english">Tell me something</p>
@@ -221,6 +226,7 @@
             <p data-current-language="spanish">Cuéntame algo</p>
           </div>
           
+          <!-- Name input -->
           <div class="input-name-holder scroll-hidden fadeInUp">
             <input type="text" id="name" name="name" required>
             <label for="name">
@@ -228,13 +234,14 @@
               <span data-current-language="spanish">Nombre</span>
             </label>
           </div>
+          <!-- Email input -->
           <div class="input-email-holder scroll-hidden fadeInUp">
-            <input type="text" id="email" name="email" required>
+            <input type="email" id="email" name="email" required>
             <label for="email">
               Email
             </label>
           </div>
-          
+          <!-- Textarea input -->
           <div class="textarea-holder scroll-hidden fadeInUp">
             <textarea name="message" id="message" required></textarea>
             <label for="message">
@@ -242,7 +249,7 @@
               <span data-current-language="spanish">Escribe tu mensaje aquí</span>
             </label>
           </div>
-
+          <!-- Submit btn -->
           <div class="submit-holder scroll-hidden fadeInRight">
             <button type="submit" class="btn send">
               <div class="holder" data-name="Send">
@@ -252,8 +259,9 @@
             </button>
           </div>
 
-        </from>
+        </form>
 
+        <!-- Card -->
         <div class="card-holder scroll-hidden fadeInUp" data-card-holder>
           <div class="card" data-card>
             <div class="front-face">
@@ -301,8 +309,8 @@
     <footer>
       
       <!-- Map -->
-      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95780.46585387245!2d2.070149447644703!3d41.392775497702786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49816718e30e5%3A0x44b0fb3d4f47660a!2sBarcelona!5e0!3m2!1sen!2ses!4v1670521638716!5m2!1sen!2ses" width="800" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <!-- <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95780.46585387245!2d2.070149447644703!3d41.392775497702786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49816718e30e5%3A0x44b0fb3d4f47660a!2sBarcelona!5e0!3m2!1sen!2ses!4v1670521638716!5m2!1sen!2ses" width="800" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe> -->
 
       <div class="wrap">
         <p data-date></p>

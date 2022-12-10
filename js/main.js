@@ -1,5 +1,7 @@
 // -- Window load -- //
 
+const body = document.querySelector("body")
+
 // Stack items
 const sliderItemList = document.querySelector("[data-item-list]")
 const loader = document.querySelector("[data-loader]")
@@ -11,6 +13,19 @@ const heroTextContent = "Nicolas Camusso"
 
 
 window.addEventListener("load", () => {
+
+  // Loader removal
+  // setTimeout(() => {
+  //   loader.classList.add("removing-loader")
+  //   loader.addEventListener("transitionend", () => {
+  //     loader.remove();
+  //   })
+  // }, 1000);
+
+  // Sets language to english if data-selected-language isnt set to english or spanish
+  if (body.dataset.selectedLanguage != "english" || body.dataset.selectedLanguage != "spanish") {
+    body.dataset.selectedLanguage = "english";
+  }
   
   // Add letters each on a span to the h1 in the hero section
   for (let i = 0; i < heroTextContent.length; i++) {
@@ -50,13 +65,9 @@ window.addEventListener("load", () => {
   sliderCurrentItem.previousElementSibling.classList.add("second", "left")
   sliderCurrentItem.previousElementSibling.previousElementSibling.classList.add("third", "left")
 
-  // Loader removal
-  // setTimeout(() => {
-  //   loader.classList.add("removing-loader")
-  //   loader.addEventListener("transitionend", () => {
-  //     loader.remove();
-  //   })
-  // }, 1000);
+  // Sets attributes to success link and autoresponse to default english
+  successPageLink.setAttribute("value", successPageLinkEnglish)
+  automatedResponseLink.setAttribute("value", automatedResponseEnglish)
   
 })
 
@@ -90,13 +101,14 @@ window.onscroll = () => {
     }
   });
 
-
   navLi.forEach((li) => {
     li.classList.remove("active");
     if (li.classList.contains(current)) {
       li.classList.add("active");
     }
   });
+
+  console.log(headerHeight)
 
   // Header fade 
 
@@ -451,8 +463,14 @@ function nextItem() {
 
 // -- -- Language selector -- -- 
 
-const body = document.querySelector("body")
 const languages = document.querySelectorAll("[data-language]")
+const form = document.querySelector("[data-contact-form]")
+const successPageLink = document.querySelector("[data-success-page-link]")
+const successPageLinkEnglish = "https://nico-pwmt.github.io/nicolascamusso/pages/success.html"
+const successPageLinkSpanish = "https://nico-pwmt.github.io/nicolascamusso/pages/exito.html"
+const automatedResponseLink = document.querySelector("[data-autoresponse-link]")
+const automatedResponseEnglish = "Thanks for your message! This is an automated response. I'll contact you back as soon as possible."
+const automatedResponseSpanish = "Gracias por tu mensaje! Éste es un mensaje automático. Me pondré en contacto contigo lo antes posible."
 
 languages.forEach((lang) => {
   lang.addEventListener("click", (e) => {
@@ -463,7 +481,15 @@ languages.forEach((lang) => {
     } else {
       lang.previousElementSibling.classList.remove("not_selected")
     }
-    console.log(lang.nextElementSibling)
+
+    // adds correct attributes to inputs acording to language
+    if (lang.dataset.language == "english") {
+      successPageLink.setAttribute("value", successPageLinkEnglish)
+      automatedResponseLink.setAttribute("value", automatedResponseEnglish)
+    } else if (lang.dataset.language == "spanish") {
+      successPageLink.setAttribute("value", successPageLinkSpanish)
+      automatedResponseLink.setAttribute("value", automatedResponseSpanish)
+    }
   })
 })
 
