@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Nicolas Camusso</title>
+  <meta name="description" content="Hello world">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+  <script src="js/main.js" defer></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-selected-language="english">
+  <!-- Loader -->
+  <!-- <div id="loader" data-loader>
+    <div class="ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div> -->
+
+  <!-- Menu -->
+  
+  <nav id="menu">
+
+    <!-- Burger -->
+    <button id="burger" data-burger>
+      <span class="line top"></span>
+      <span class="mid"></span>
+      <span class="line bot"></span>
+    </button>
+
+    <div class="overlay" data-overlay></div>
+
+    <div class="menu-holder" data-menu-holder>
+      <ol class="links">
+        <li class="section_about">
+          <a href="#section_about">
+            <span data-current-language="english">About</span>
+            <span data-current-language="spanish">Acerca de mí</span>
+          </a>
+        </li>
+        <li class="section_stack">
+          <a href="#section_stack">
+            <span data-current-language="english">Tech Stack</span>
+            <span data-current-language="spanish">Stack Tecnológico</span>
+          </a>
+        </li>
+        <li class="section_resume">
+          <a href="#section_resume">
+            <span data-current-language="english">Resume</span>
+            <span data-current-language="spanish">Currículum</span>
+          </a>
+        </li>
+        <li class="section_contact">
+          <a href="#section_contact">
+            <span data-current-language="english">Contact</span>
+            <span data-current-language="spanish">Contacto</span>
+          </a>
+        </li>
+      </ol>
+      <div class="languages">
+        <button data-language="spanish" title="Switch to Spanish"><img src="img/languages/english.svg" alt="English"></button>
+        <button data-language="english" title="Switch to English" class="not_selected"><img src="img/languages/spanish.svg" alt="Spanish"></button>
+      </div>
+    </div>
+    <div class="logo">
+      N
+    </div>
+    <div id="cursor"></div>
+  </nav>
+
+  <main>
+
+    <!-- Home -->
+    <section id="section_home" data-section-home>
+      
+      <div class="hero-img" data-hero-img>
+        <img src="img/bg-contact.jpg" alt="Nicolas Camusso">
+      </div>
+      <div class="hero-text" data-hero-text>
+        <h1 data-hero-title></h1>
+        <p data-current-language="english">Frontend Web Developer</p>
+        <p data-current-language="spanish">Desarrollador Frontend</p>
+      </div>
+
+    </section>
+
+    <section id="section_about">
+      <div class="wrap">
+        <h2 class="scroll-hidden fadeInUp">
+          <span data-current-language="english">About</span>
+          <span data-current-language="spanish">Acerca de mí</span>
+        </h2>
+        <p>As a seasoned frontend developer with a wealth of experience working remotely, Nicolas is a master of crafting elegant, user-friendly digital experiences. With a deep understanding of modern web development technologies and a passion for staying at the forefront of the industry, he is constantly pushing the boundaries of what is possible on the web. Whether he is designing intuitive interfaces or implementing cutting-edge features, Nicolas approaches each project with a focus on innovation, collaboration, and communication. In his free time, he enjoys exploring the world of music and art and continuing his lifelong learning journey.</p>
+      </div>
+
+      <!-- Curtain -->
+      <div class="curtain" data-curtain>
+        <div class="side left" data-left-side>
+          <h3 data-current-language="english">I am<br>Nicolas</h3>
+          <h3 data-current-language="spanish">Soy<br>Nicolas</h3>
+        </div>
+        <div class="side right" data-right-side>
+          <h3 data-current-language="english">I am<br>Frontend</h3>
+          <h3 data-current-language="spanish">Soy<br>Frontend</h3>
+        </div>
+      </div>
+
+    </section>
+    
+
+    <!-- Stack -->
+    <section id="section_stack">
+      <h2 class="lead scroll-hidden fadeInUp">
+        <span data-current-language="english">Tech Stack</span>
+        <span data-current-language="spanish">Stack Tecnológico</span>
+      </h2>
+      <div class="slider">
+        <button class="slider-prev" data-slider-prev></button>
+        <button class="slider-next" data-slider-next></button>
+        <ul class="items" data-item-list>
+          
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Resume -->
+    <section id="section_resume">
+      <h2 class="scroll-hidden fadeInUp">
+        <span data-current-language="english">Resume</span>
+        <span data-current-language="spanish">Currículum</span>
+      </h2>
+      <ul class="experience">
+        <li class="scroll-hidden fadeInLeft">
+          <div class="timeline">
+            <span class="start">2010</span>
+            <span class="line"></span>
+            <span class="end">2014</span>
+          </div>
+          <div class="info">
+            <h4>Frontend designer</h4>
+            <h5>Formación & Control, Seville, Spain</h5>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque obcaecati rerum natus ea velit! Nesciunt excepturi magni quis numquam consequuntur.
+          </div>
+        </li>
+        <li class="scroll-hidden fadeInLeft">
+          <div class="timeline">
+            <span class="start">2010</span>
+            <span class="line"></span>
+            <span class="end">2014</span>
+          </div>
+          <div class="info">
+            <h4>Frontend designer</h4>
+            <h5>Formación & Control, Seville, Spain</h5>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque obcaecati rerum natus ea velit! Nesciunt excepturi magni quis numquam consequuntur.
+          </div>
+        </li>
+        <li class="scroll-hidden fadeInLeft">
+          <div class="timeline">
+            <span class="start">2010</span>
+            <span class="line"></span>
+            <span class="end">2014</span>
+          </div>
+          <div class="info">
+            <h4>Frontend designer</h4>
+            <h5>Formación & Control, Seville, Spain</h5>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque obcaecati rerum natus ea velit! Nesciunt excepturi magni quis numquam consequuntur.
+          </div>
+        </li>
+        <li class="scroll-hidden fadeInLeft">
+          <div class="timeline">
+            <span class="start">2010</span>
+            <span class="line"></span>
+            <span class="end">2014</span>
+          </div>
+          <div class="info">
+            <h4>Frontend designer</h4>
+            <h5>Formación & Control, Seville, Spain</h5>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque obcaecati rerum natus ea velit! Nesciunt excepturi magni quis numquam consequuntur.
+          </div>
+        </li>
+        <li class="scroll-hidden fadeInLeft">
+          <div class="timeline">
+            <span class="start">2010</span>
+            <span class="line"></span>
+            <span class="end">2014</span>
+          </div>
+          <div class="info">
+            <h4>Frontend designer</h4>
+            <h5>Formación & Control, Seville, Spain</h5>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque obcaecati rerum natus ea velit! Nesciunt excepturi magni quis numquam consequuntur.
+          </div>
+        </li>
+      </ul>
+      <div class="text-right scroll-hidden fadeInRight">
+        <a href="#" class="btn pdf">
+          <div class="holder">
+            <span data-current-language="english">Download<br>Resume</span>
+            <span data-current-language="spanish">Descargar<br>Currículum</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="section_contact">
+
+      <div id="lamp"></div>
+
+        <h2 class="scroll-hidden fadeInUp">
+          <span data-current-language="english">Contact me</span>
+          <span data-current-language="spanish">Contáctame</span>
+        </h2>
+        <from class="contact-grid" action="https://formsubmit.co/nico_inax@hotmail.com" method="POST">
+
+          <div class="intro-text scroll-hidden fadeInLeft">
+            <p class="big" data-current-language="english">HEY!</p>
+            <p data-current-language="english">Tell me something</p>
+            <p class="big" data-current-language="spanish">Hola!</p>
+            <p data-current-language="spanish">Cuéntame algo</p>
+          </div>
+          
+          <div class="input-name-holder scroll-hidden fadeInUp">
+            <input type="text" id="name" name="name" required>
+            <label for="name">
+              <span data-current-language="english">Name</span>
+              <span data-current-language="spanish">Nombre</span>
+            </label>
+          </div>
+          <div class="input-email-holder scroll-hidden fadeInUp">
+            <input type="text" id="email" name="email" required>
+            <label for="email">
+              Email
+            </label>
+          </div>
+          
+          <div class="textarea-holder scroll-hidden fadeInUp">
+            <textarea name="message" id="message" required></textarea>
+            <label for="message">
+              <span data-current-language="english">Text goes here</span>
+              <span data-current-language="spanish">Escribe tu mensaje aquí</span>
+            </label>
+          </div>
+
+          <div class="submit-holder scroll-hidden fadeInRight">
+            <button type="submit" class="btn send">
+              <div class="holder" data-name="Send">
+                <span data-current-language="english">Send</span>
+                <span data-current-language="spanish">Enviar</span>
+              </div>
+            </button>
+          </div>
+
+        </from>
+
+        <div class="card-holder scroll-hidden fadeInUp" data-card-holder>
+          <div class="card" data-card>
+            <div class="front-face">
+              <h3>Nicolas Camusso</h3>
+              <hr>
+              <h4>
+                <span data-current-language="english">Frontend Developer</span>
+                <span data-current-language="spanish">Desarrollador Frontend</span>
+              </h4>
+            </div>
+            <div class="back-face">
+              <div class="image">
+                <img src="img/profile-pic.jpg" alt="">
+              </div>
+              <div class="info">
+                <ul>
+                  <li>
+                    <div class="icon">
+                      <img src="img/card-phone.svg" alt="Phone number">
+                    </div>
+                    <span>+34 661 038 214</span>
+                  </li>
+                  <li>
+                    <div class="icon">
+                      <img src="img/card-email.svg" alt="Email">
+                    </div>
+                    <span>info@nicolascamusso.com</span>
+                  </li>
+                  <li>
+                    <div class="icon">
+                      <img src="img/card-loc.svg" alt="Location">
+                    </div>
+                    <span data-current-language="english">Barcelona, Spain</span>
+                    <span data-current-language="spanish">Barcelona, España</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+    </section>
+
+    <footer>
+      
+      <!-- Map -->
+      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95780.46585387245!2d2.070149447644703!3d41.392775497702786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49816718e30e5%3A0x44b0fb3d4f47660a!2sBarcelona!5e0!3m2!1sen!2ses!4v1670521638716!5m2!1sen!2ses" width="800" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <div class="wrap">
+        <p data-date></p>
+        <ul class="socials">
+          <li><a href="mailto:info@nicolascamusso.com"><img src="img/socials/email.png" alt="Email"></a></li>
+          <li><a href="https://www.linkedin.com/in/nicolas-camusso-36a0a0173/" target="_blank"><img src="img/socials/linkedin.png" alt="LinkedIn"></a></li>
+          <li><a href="https://estadoalpha.com/" target="_blank"><img src="img/socials/estadoalpha.png" alt="Estado Alpha"></a></li>
+        </ul>
+      </div>
+      
+    </footer>
+      
+  </main>
+</body>
+</html>  
