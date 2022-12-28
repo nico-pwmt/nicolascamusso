@@ -9,8 +9,10 @@ const loader = document.querySelector("[data-loader]")
 // Hero title animation
 
 const heroTitle = document.querySelector("[data-hero-title]")
+const heroTitleDefault = document.querySelector("[data-hero-title-default]")
 const heroTextContent = "Nicolas Camusso"
 
+/* ON LOAD EVENT */
 
 window.addEventListener("load", () => {
 
@@ -27,6 +29,8 @@ window.addEventListener("load", () => {
     body.dataset.selectedLanguage = "english";
   }
   
+  // Adds default hero title
+  heroTitleDefault.innerHTML = heroTextContent
   // Add letters each on a span to the h1 in the hero section
   for (let i = 0; i < heroTextContent.length; i++) {
     heroTitle.innerHTML += `<span>${heroTextContent[i]}</span>`
@@ -66,28 +70,36 @@ window.addEventListener("load", () => {
   sliderCurrentItem.previousElementSibling.previousElementSibling.classList.add("third", "left")
 
   // Sets attributes to success link and autoresponse to default english
-  successPageLink.setAttribute("value", successPageLinkEnglish)
-  automatedResponseLink.setAttribute("value", automatedResponseEnglish)
+  successPageInput.setAttribute("value", successPageEnglish)
+  automatedResponseInput.setAttribute("value", automatedResponseEnglish)
   
 })
 
-/* -- -- Scroll functions -- -- */
+/* ON SCROLL EVETN */
 
 const sections = document.querySelectorAll("section");
 const navLi = document.querySelectorAll("#menu ol.links li");
 const header = document.querySelector("[data-menu-holder]")
+
 const sectionHome = document.querySelector("[data-section-home]")
+const heroHeight = window.innerHeight;
+const heroText = document.querySelector("[data-hero-text]")
+const heroImg = document.querySelector("[data-hero-img]")
+
+const sectionAbout = document.querySelector("[data-section-about]")
+
 
 window.onscroll = () => {
 
   // Adjunst hader height numbers 
 
   let isMobile = window.matchMedia("(max-width: 800px)").matches
-  let headerHeight;
+  let headerHeight = document.querySelector(".menu-holder").offsetHeight;
   if (isMobile) {
     headerHeight = 0;
-  } else {
-    headerHeight = document.querySelector(".menu-holder").offsetHeight;
+  }
+  if (!isMobile) {
+    burger.classList.remove("active")
   }
   
   // Activate menu links when scrolling
@@ -96,7 +108,7 @@ window.onscroll = () => {
 
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - headerHeight) {
+    if (pageYOffset + 1 >= sectionTop - headerHeight) {
       current = section.getAttribute("id"); 
     }
   });
@@ -108,13 +120,7 @@ window.onscroll = () => {
     }
   });
 
-  console.log(headerHeight)
-
   // Header fade 
-
-  const heroHeight = window.innerHeight;
-  const heroText = document.querySelector("[data-hero-text]")
-  const heroImg = document.querySelector("[data-hero-img]")
 
   // adds scrolled to home section at a third window height of scrolling
   if (pageYOffset >= heroHeight / 3)  {
@@ -133,7 +139,14 @@ window.onscroll = () => {
   }
 
   // parallax on hero image
-  heroImg.children[0].style.objectPosition = `50% ${pageYOffset / -5}px`
+  heroImg.style.backgroundPositionY = `${pageYOffset / -5}px`
+
+  // parallax on about image
+  sectionAbout.style.backgroundPositionY = `${pageYOffset / -5 + 300}px`
+
+  // svg animations
+  fillSvgPaths()
+
 
 };
 
@@ -151,6 +164,7 @@ menuOverlay.addEventListener("click", () => {
   burger.classList.remove("active")
 })
 
+// close menu when link clicked
 links.forEach((e) => {
   e.addEventListener("click", () => {
     burger.classList.remove("active")
@@ -178,6 +192,56 @@ mouseTracker_menuOverlay.addEventListener("mouseleave", (e) => {
 })
 
 
+// Logo SVG animations 
+
+const logo = document.querySelector("[data-logo-svg]")
+const logoPaths = document.querySelectorAll("[data-logo-svg] path.line")
+const logoLetter = document.querySelector("[data-logo-svg] path.letter")
+
+function fillSvgPaths() {
+
+  // get percentage of scrolled
+  let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+
+  // set length of <path> | full when 100% of screen scrolled
+  for (let i = 0; i < logoPaths.length; i++) {
+    let path = logoPaths[i];
+    
+    let pathLength = path.getTotalLength();
+    
+    path.style.strokeDasharray = pathLength;
+    path.style.strokeDashoffset = pathLength;
+    
+    let drawLength = pathLength * scrollPercentage;
+    
+    path.style.strokeDashoffset = pathLength - drawLength;
+        
+  }
+  
+  if (logoPaths[0].style.strokeDashoffset == 0) { // when paths fully form letter, filled letter appears
+    logoPaths[0].addEventListener("transitionend", fillLetter)
+  } else { // removes filled letter and transitions when is not fully formed
+    logoLetter.style.opacity = 0;
+    logoPaths[0].removeEventListener("transitionend", fillLetter)
+  }
+
+}
+
+// function that shows filled logo letter
+function fillLetter() {
+  logoLetter.style.opacity = 1;
+}
+
+    
+
+
+
+
+
+
+
+
+
 
 // -- Section Curtain 
 
@@ -198,6 +262,7 @@ SECTION_CURTAIN.ontouchmove = e => handleOnMove(e.touches[0]);
 
 const card_holder = document.querySelector("[data-card-holder]");
 const card = document.querySelector("[data-card]")
+const shadow = document.querySelector("[data-shadow]")
 
 card_holder.addEventListener("click", () => {
   if (!card.classList.contains("card-flip-forwards")) {
@@ -465,10 +530,10 @@ function nextItem() {
 
 const languages = document.querySelectorAll("[data-language]")
 const form = document.querySelector("[data-contact-form]")
-const successPageLink = document.querySelector("[data-success-page-link]")
-const successPageLinkEnglish = "https://nico-pwmt.github.io/nicolascamusso/pages/success.html"
-const successPageLinkSpanish = "https://nico-pwmt.github.io/nicolascamusso/pages/exito.html"
-const automatedResponseLink = document.querySelector("[data-autoresponse-link]")
+const successPageInput = document.querySelector("[data-success-page-input]")
+const successPageEnglish = "https://nico-pwmt.github.io/nicolascamusso/pages/success.html"
+const successPageSpanish = "https://nico-pwmt.github.io/nicolascamusso/pages/exito.html"
+const automatedResponseInput = document.querySelector("[data-autoresponse-input]")
 const automatedResponseEnglish = "Thanks for your message! This is an automated response. I'll contact you back as soon as possible."
 const automatedResponseSpanish = "Gracias por tu mensaje! Éste es un mensaje automático. Me pondré en contacto contigo lo antes posible."
 
@@ -484,11 +549,11 @@ languages.forEach((lang) => {
 
     // adds correct attributes to inputs acording to language
     if (lang.dataset.language == "english") {
-      successPageLink.setAttribute("value", successPageLinkEnglish)
-      automatedResponseLink.setAttribute("value", automatedResponseEnglish)
+      successPageInput.setAttribute("value", successPageEnglish)
+      automatedResponseInput.setAttribute("value", automatedResponseEnglish)
     } else if (lang.dataset.language == "spanish") {
-      successPageLink.setAttribute("value", successPageLinkSpanish)
-      automatedResponseLink.setAttribute("value", automatedResponseSpanish)
+      successPageInput.setAttribute("value", successPageSpanish)
+      automatedResponseInput.setAttribute("value", automatedResponseSpanish)
     }
   })
 })
