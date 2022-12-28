@@ -60,8 +60,7 @@
 
   /* Card */
   --card-front: linear-gradient(41deg, #3742b4 0%, #112b15 75%, #000000 100%);
-  --card-back: linear-gradient(63deg, #489c71 0%, #808a59 48%, #343c95 95%);
-  /* --card-back: #2b2b2b; */
+  --card-back: #16140f;
   --card-flip-duration: .5s;
   --card-effect-duration: 5s;
   
@@ -1033,6 +1032,7 @@ h2.lead::after {
   background-position: bottom right;
   
   background-color: #16140f;
+  background-color: var(--card-back);
   background-image: url(../img/laptop.png);
 
   /* background-color: #140811;
@@ -1080,6 +1080,11 @@ h2.lead::after {
 .card .back-face .info.code-text {
   color: white;
   font-size: .8rem;
+  font-size: clamp(2vw, .8rem, .8rem);
+  text-shadow: .05em .05em 0 var(--card-back),
+               -.05em -.05em 0 var(--card-back),
+               -.05em .05em 0 var(--card-back),
+               .05em -.05em 0 var(--card-back);
 }
 .card .back-face .info.code-text p {
   margin: 0 0 .2rem;
@@ -1698,7 +1703,6 @@ ul.socials li a:hover{
   #menu .menu-holder,
   #menu .menu-holder.scrolled {
     transform: translateX(-100%);
-    inset: 0 40% 0 0;
     padding: 2rem;
     padding-top: 6rem;
     flex-direction: column;
@@ -1706,6 +1710,11 @@ ul.socials li a:hover{
     height: auto;
     border: none;
     font-size: 1.3rem;
+    
+    /* inset: 0 40% 0 0; */
+
+    width: 60%;
+    height: 100dvh;
   }
   #burger.active ~ .menu-holder.scrolled {
     transform: none;
