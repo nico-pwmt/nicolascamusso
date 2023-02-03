@@ -1,3 +1,5 @@
+"use strict"
+
 // -- Window load -- //
 
 const body = document.querySelector("body")
@@ -46,6 +48,38 @@ window.addEventListener("load", () => {
     })
     
   })
+  
+  // Loki letters effect
+
+  const fontFamilies = [
+    "Alata",
+    "Galada",
+    "Hammersmith one",
+    "Lilita One",
+    "Roboto mono",
+    "Alexandria",
+    "Pacifico",
+    "Helvetica",
+    "Comic Sans MS",
+    "Courier New",
+    "Franklin Gothic Medium",
+    "Gill Sans",
+    "Lucida Sans",
+    "Segoe UI",
+    "Trebuchet MS",
+  ]
+
+  for (let i = 0; i <= 10; i++) {
+    setTimeout(() => {
+      letters.forEach((letter) => {
+        
+        let randomFont = Math.floor(Math.random() * fontFamilies.length)
+    
+        letter.style.fontFamily = fontFamilies[randomFont];
+        
+      })
+    }, 250 * i);
+  }
 
   // Add stacks to list
   for (let i = 0; i <= stacks.length - 1; i++) {
@@ -565,3 +599,13 @@ const getYear = new Date().getFullYear();
 const copyright = document.querySelector("[data-date]")
 
 copyright.innerHTML = `&copy; ${getYear}`
+
+
+
+
+
+
+
+
+
+

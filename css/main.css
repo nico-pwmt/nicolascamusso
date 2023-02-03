@@ -728,7 +728,7 @@ h2.lead::after {
 
 /* Logo */
 
-.logo_svg {
+.logo-svg {
   background: var(--white);
   border: .1rem solid var(--dark-grey);
   width: 3rem;
@@ -743,18 +743,18 @@ h2.lead::after {
   text-align: center;
   pointer-events: none;
 }
-.logo_svg svg {
+.logo-svg svg {
   width: 70%;
   height: 100%;
 }
-.logo_svg svg path.line {
+.logo-svg svg path.line {
   fill: none;
   stroke: var(--dark-grey);
   stroke-miterlimit: 10;
   stroke-width: 1rem;
   transition: stroke-dashoffset .2s ease-out;
 }
-.logo_svg svg path.letter {
+.logo-svg svg path.letter {
   fill: var(--dark-grey);
   stroke: var(--dark-grey);
   stroke-miterlimit: 10;
@@ -835,7 +835,7 @@ h2.lead::after {
   border-bottom: 1px solid var(--dark-grey);
   transform: translateY(0);
 }
-#menu .menu-holder.scrolled ~ .logo_svg {
+#menu .menu-holder.scrolled ~ .logo-svg {
   transform: translateX(0) translateY(-50%);
 }
 /* #section_home.scrolled .hero-img {
@@ -1080,7 +1080,7 @@ h2.lead::after {
 .card .back-face .info.code-text {
   color: white;
   font-size: .8rem;
-  font-size: clamp(2vw, .8rem, .8rem);
+  font-size: clamp(.8rem, 2vw, 1rem);
   text-shadow: .05em .05em 0 var(--card-back),
                -.05em -.05em 0 var(--card-back),
                -.05em .05em 0 var(--card-back),
@@ -1090,7 +1090,7 @@ h2.lead::after {
   margin: 0 0 .2rem;
 }
 .card .back-face .info.code-text p.nested {
-  margin-left: 1rem;
+  margin-left: 1em;
 }
 .card .back-face .info.code-text span {
   display: inline;
@@ -1624,7 +1624,7 @@ ul.socials li a:hover{
  ========================================================================== */
 
  /* -- -- Mid screens -- -- */
- @media screen and (max-width: 1280px) {
+ @media screen and (width <= 1280px) {
 
   /* Resume */
 
@@ -1656,7 +1656,7 @@ ul.socials li a:hover{
 
  /* -- -- Small screens -- -- */
 
- @media screen and (max-width: 800px) {
+ @media screen and (width <= 800px) {
 
   :root {
     --header-height: 0 !important;
@@ -1710,11 +1710,7 @@ ul.socials li a:hover{
     height: auto;
     border: none;
     font-size: 1.3rem;
-    
-    /* inset: 0 40% 0 0; */
-
-    width: 60%;
-    height: 100dvh;
+    inset: 0 40% 0 0;
   }
   #burger.active ~ .menu-holder.scrolled {
     transform: none;
@@ -1722,12 +1718,12 @@ ul.socials li a:hover{
   #menu .menu-holder ol.links {
     flex-direction: column;
   }
-  #menu .menu-holder ~ .logo_svg {
+  #menu .menu-holder ~ .logo-svg {
     width: 4rem;
     top: 1rem;
     right: 1.5rem;
   }
-  #menu .menu-holder.scrolled ~ .logo_svg {
+  #menu .menu-holder.scrolled ~ .logo-svg {
     transform: translateX(0) translateY(0);
   }
   
@@ -1737,8 +1733,6 @@ ul.socials li a:hover{
   #menu .menu-holder.scrolled .languages { 
     transform: none;
   }
-  
-  
 
   /* Home */
   #section_home {
@@ -1793,4 +1787,11 @@ ul.socials li a:hover{
     font-size: .9rem;
   }
   
+ }
+
+ 
+ /* -- -- Very Small screens -- -- */
+
+ @media screen and (width <= 400px) {
+
  }
